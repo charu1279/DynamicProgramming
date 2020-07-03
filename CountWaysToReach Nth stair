@@ -1,0 +1,38 @@
+/*Program to count the total number of ways to reach the Nth stair.There are n stairs,
+a person standing at the bottom wants to reach the top. The person can climb 
+either 1 stair or 2 stairs at a time.
+Count the total number of ways, the person can reach the top.
+
+Example:
+Input:4
+Output:5
+Explanation:
+Way 1: 1-1-1-1-1
+
+Way 2: 1-2-1
+
+Way 3: 2-1-1
+
+Way 4: 1-1-2
+
+Way 5: 2-2
+
+*/
+#include <stdio.h>
+int Fib(int n){
+    if(n<=1){
+        return n;
+    }
+    return Fib(n-1)+Fib(n-2);
+}
+int CountSteps(int steps){
+    return Fib(steps+1);
+}
+int main()
+{
+    int steps;
+    scanf("%d",&steps);
+    printf("%d",CountSteps(steps));
+    return 0;
+}
+
