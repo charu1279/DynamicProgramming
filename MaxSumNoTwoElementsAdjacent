@@ -1,0 +1,47 @@
+/*Program to find the maximum sum such that no two elements
+in the array are adjacent.
+
+Example:
+Input: 9
+      -9 63 -100 25 89 -96 63 45 78
+output: 293
+
+Explanation: 63 +89 +63 + 78 = 293
+
+Input:6
+     5 5 10 100 10 5
+Output:110
+
+*/
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n,i,t;
+    cin>>n;
+    int a[n];
+    for(i=0;i<n;i++){
+        cin>>a[i];
+    }
+    int include=a[0],exclude=0;
+    for(i=1;i<n;i++){
+        if(include>exclude){
+            t=include;
+        }
+        else{
+            t=exclude;
+        }
+        include=exclude+a[i];
+        exclude=t;
+    }
+    if(include>exclude){
+        cout<<include;
+    }
+    else{
+        cout<<exclude;
+    }
+}
+
+
